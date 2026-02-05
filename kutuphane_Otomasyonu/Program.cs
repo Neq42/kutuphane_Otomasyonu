@@ -17,23 +17,11 @@ namespace kutuphane_Otomasyonu
                 string secim = Console.ReadLine();
                 if (secim == "1")
                 {
-                    Console.WriteLine("Kitap adı giriniz:");
-                    string kitapAdi = Console.ReadLine();
-                    Console.WriteLine("yazar adı giriniz:");
-                    string yazar = Console.ReadLine();
-                    Console.WriteLine("ısbn giriniz:");
-                    string isbn = Console.ReadLine();
-                    Kitap eklenecekKitap = new Kitap(isbn, kitapAdi, yazar, "Ödünç alınabilir");
-                    geceYarisiKutuphanesi.kitapList.Add(eklenecekKitap);
+                    Kitap.kitapEkle(geceYarisiKutuphanesi.kitapList);
                 }
                 else if (secim == "2")
                 {
-                    foreach (var kitap in geceYarisiKutuphanesi.kitapList)
-                    {
-                        Console.WriteLine(kitap.AD);
-                        Console.WriteLine(kitap.YAZAR);
-                        Console.WriteLine(kitap.DURUM);
-                    }
+                    Kitap.kitapListele(geceYarisiKutuphanesi.kitapList);
                 }
                 else if (secim == "3")
                 {
@@ -47,7 +35,6 @@ namespace kutuphane_Otomasyonu
                         {
                             break;
                         }
-
                     }
                     if (varMi)
                     {
@@ -60,11 +47,13 @@ namespace kutuphane_Otomasyonu
                 }
                 else if (secim == "4")
                 {
-                    Console.WriteLine("Silmek istediğiniz kitabın ismi nedir?");
-                    string silinecekKitap = Console.ReadLine();
-                    bool varMi = false;
                     foreach (var kitap in geceYarisiKutuphanesi.kitapList)
                     {
+                        Kitap.kitapListele(geceYarisiKutuphanesi.kitapList);
+
+                        bool varMi = false;
+                        Console.WriteLine("Silmek istediğiniz kitabın ismi nedir?");
+                        string silinecekKitap = Console.ReadLine();
                         varMi = silinecekKitap.Equals(kitap.AD, StringComparison.OrdinalIgnoreCase);
                         if (varMi)
                         {
@@ -75,33 +64,27 @@ namespace kutuphane_Otomasyonu
                 }
                 else if (secim == "5")
                 {
-                    Console.WriteLine("Üye numaranızı giriniz.");
-                    int girilenUyeNo = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Adınızı ve Soyadınızı giriniz.");
-                    string girilenAdSoyad = Console.ReadLine();
-
-                    Uye eklenecekUye = new Uye(girilenUyeNo, girilenAdSoyad);
-
-                    geceYarisiKutuphanesi.uyelerList.Add(eklenecekUye);
+                    Uye.uyeEkle(geceYarisiKutuphanesi.uyelerList);
                 }
                 else if (secim == "6")
                 {
                     foreach (var uye in geceYarisiKutuphanesi.uyelerList)
                     {
-                        Console.WriteLine("Üyemiz:" + uye.adSoyad); 
+                        Console.WriteLine("Üyemiz:" + uye.adSoyad);
                     }
                 }
                 else if (secim == "7")
                 {
-
+                    Kitap.OduncVer(geceYarisiKutuphanesi.kitapList);
                 }
                 else if (secim == "8")
                 {
-
+                    Kitap.OduncAlinanKitaplariListele(geceYarisiKutuphanesi);
                 }
                 else if (secim == "0")
                 {
-
+                    Console.WriteLine("Programdan çıkılıyor... Güle güle ");
+                    break;
                 }
                 else
                 {
