@@ -24,7 +24,6 @@ namespace kutuphane_Otomasyonu
         {
 
         }
-
         public static void OduncVer(List<Kitap> kitaps)
         {
             foreach (Kitap item in kitaps)
@@ -34,10 +33,8 @@ namespace kutuphane_Otomasyonu
                     Console.WriteLine("Kitap Adı: " + item.AD + " Yazar: " + item.YAZAR + " ISBN: " + item.ISBN);
                 }
             }
-
             Console.WriteLine("Ödünç alınacak kitap ISBN no:");
             string isbn = Console.ReadLine();
-
             if (isbn != null)
             {
                 foreach (Kitap item in kitaps)
@@ -56,10 +53,6 @@ namespace kutuphane_Otomasyonu
             else if (isbn == null)
                 Console.WriteLine("Girilen ISBN numarasına sahip kitap bulunamadı.");
         }
-
-
-
-
         public static void OduncAlinanKitaplariListele(Kutuphane geceYarisiKutuphanesi)
         {
             bool oduncKitapVarMi = false;
@@ -75,7 +68,6 @@ namespace kutuphane_Otomasyonu
                     oduncKitapVarMi = true;
                 }
             }
-
             if (!oduncKitapVarMi)
             {
                 Console.WriteLine("Şu anda ödünç alınmış kitap yok.");
@@ -101,15 +93,8 @@ namespace kutuphane_Otomasyonu
             string isbn = Console.ReadLine();
             Kitap yeniKitap = new Kitap(isbn, kitapAdi, yazar, true);
             kitapList.Add(yeniKitap);
-
             Console.WriteLine("Kitap eklendi.");
         }
-
-
-
-
-
-
     }
 }
 

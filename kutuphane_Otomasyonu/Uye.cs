@@ -27,5 +27,12 @@ namespace kutuphane_Otomasyonu
             Console.WriteLine("Yeni üye eklendi.");
 
         }
+        public static void uyeListele(List<Uye> uyelerList )
+        {
+            foreach (var uye in uyelerList)
+            {
+                Console.WriteLine("Üyemiz:" + uye.adSoyad);
+            }
+        }
     }
 }

@@ -25,41 +25,14 @@ namespace kutuphane_Otomasyonu
                 }
                 else if (secim == "3")
                 {
-                    Console.WriteLine("Kitap ismini giriniz:");
-                    string girilenKitapİsmi = Console.ReadLine();
-                    bool varMi = false;
-                    foreach (var kitap in geceYarisiKutuphanesi.kitapList)
-                    {
-                        varMi = girilenKitapİsmi.Equals(kitap.AD, StringComparison.OrdinalIgnoreCase);
-                        if (varMi)
-                        {
-                            break;
-                        }
-                    }
-                    if (varMi)
-                    {
-                        Console.WriteLine("Buyrun efendim:" + girilenKitapİsmi);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Aradığınız kitap elimizde yok.");
-                    }
+                    Kutuphane.kitapAra(geceYarisiKutuphanesi.kitapList);
                 }
                 else if (secim == "4")
                 {
                     foreach (var kitap in geceYarisiKutuphanesi.kitapList)
                     {
                         Kitap.kitapListele(geceYarisiKutuphanesi.kitapList);
-
-                        bool varMi = false;
-                        Console.WriteLine("Silmek istediğiniz kitabın ismi nedir?");
-                        string silinecekKitap = Console.ReadLine();
-                        varMi = silinecekKitap.Equals(kitap.AD, StringComparison.OrdinalIgnoreCase);
-                        if (varMi)
-                        {
-                            geceYarisiKutuphanesi.kitapList.Remove(kitap);
-                            break;
-                        }
+                        Kitap silinecekKitap = Kutuphane.kitapSil(kitap, geceYarisiKutuphanesi);
                     }
                 }
                 else if (secim == "5")
@@ -68,10 +41,7 @@ namespace kutuphane_Otomasyonu
                 }
                 else if (secim == "6")
                 {
-                    foreach (var uye in geceYarisiKutuphanesi.uyelerList)
-                    {
-                        Console.WriteLine("Üyemiz:" + uye.adSoyad);
-                    }
+                    Uye.uyeListele(geceYarisiKutuphanesi.uyelerList);
                 }
                 else if (secim == "7")
                 {
